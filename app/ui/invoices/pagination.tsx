@@ -3,7 +3,8 @@
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import Link from 'next/link';
-import { generatePagination } from '@/app/lib/utils';
+import { generatePagination } from '@lib/utils';
+import { Route } from 'next';
 
 export default function Pagination({ totalPages }: { totalPages: number }) {
   // NOTE: comment in this code when you get to this point in the course
@@ -59,7 +60,7 @@ function PaginationNumber({
   position,
 }: {
   page: number | string;
-  href: string;
+  href: Route | URL;
   position?: 'first' | 'last' | 'middle' | 'single';
   isActive: boolean;
 }) {
@@ -88,7 +89,7 @@ function PaginationArrow({
   direction,
   isDisabled,
 }: {
-  href: string;
+  href: Route | URL;
   direction: 'left' | 'right';
   isDisabled?: boolean;
 }) {
